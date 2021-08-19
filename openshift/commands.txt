@@ -1,0 +1,26 @@
+# Commands
+
+
+# Get, Build, Deploy
+oc new-app --context-dir=contacts-app/ \
+ --name contacts-app \
+ registry.access.redhat.com/openjdk/openjdk-11-rhel7~https://github.com/<githubid-fork>/spring-boot-fundamentals-part2-apress.git
+
+
+# Get, Build, Deploy
+oc new-app --context-dir=contacts-app-ui/ \
+ --name contacts-app-ui \
+ -e CONTACTS_SERVER=http://contacts-app:8080/contacts \
+ -e CONTACTS_USERNAME=admin \
+ -e CONTACTS_PASSWORD=admin \
+ -e SERVER_PORT=8080 \
+ registry.access.redhat.com/openjdk/openjdk-11-rhel7~https://github.com/<githubid-fork>/spring-boot-fundamentals-part2-apress.git
+
+
+# Local Testing
+oc port-forward contacts-app-ui-UUID 8080:8080
+
+
+# Expose to Internet 
+oc expose svc/contacts-app-ui
+

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  contacts-app:
+    hostname: contacts-app
+    image: contacts-app
+    
+  contacts-app-ui:
+    image: contacts-app-ui
+    environment:
+      - SERVER_PORT=8080
+      - CONTACTS_SERVER=http://contacts-app:8080/contacts
+    ports:
+      - "8080:8080"

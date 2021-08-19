@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: contacts-app
+  name: contacts-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contacts-app
+  template:
+    metadata:
+      labels:
+        app: contacts-app
+    spec:
+      containers:
+      - image: felipeg48/contacts-app:v1.0
+        name: contacts-app
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: prod
+        #livenessProbe:
+        #  initialDelaySeconds: 50
+        #  httpGet:
+        #    port: 8080
+        #    path: "/actuator/health/liveness"
+        #readinessProbe:
+        #  initialDelaySeconds: 50
+        #  httpGet:
+        #    port: 8080
+        #    path: "/actuator/health/readiness"
+        resources:
+          requests:
+            memory: "732Mi"
+            cpu: "500m"
+          limits:
+            memory: "732Mi"
+            cpu: "500m"

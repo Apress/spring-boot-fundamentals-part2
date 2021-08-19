@@ -1,0 +1,21 @@
+#1
+docker build -t contacts-app .
+
+#2
+docker images | grep contacts
+
+#3
+docker run -d --name contacts-app --rm -p 8080:8080 contacts-app
+
+#4
+./mvnw clean spring-boot:build-image -DskipTests -Dspring-boot.build-image.imageName=contacts-app-ui
+
+#5
+docker run -d --name contacts-app-ui --rm -p 8081:8081 contacts-app-ui
+
+#6
+docker run -d --name contacts-app-ui --rm -p 8081:8081 \
+ -e CONTACTS_SERVER=http://host.docker.internal:8080/contacts \
+ contacts-app-ui
+
+
