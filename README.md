@@ -1,9 +1,9 @@
 # Apress Source Code
 
-This repository accompanies [*Spring Boot Fundamentals Part 2*](https://link.springer.com/video/10.1007/%isbn%) by Felipe Gutierrez (Apress, 2021).
+This repository accompanies [*Spring Boot Fundamentals Part 2*](https://link.springer.com/video/10.1007/978-1-4842-7460-6) by Felipe Gutierrez (Apress, 2021).
 
 [comment]: #cover
-![Cover image](%isbn%.jpg)
+![Cover image](9781484274606.jpg)
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git.
 
